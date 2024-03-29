@@ -14,3 +14,5 @@ const connectDB = async () => {
 }
 
 export default connectDB
+
+// to seed: node src/server/seeders/seed-itineraries.js
