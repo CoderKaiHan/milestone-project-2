@@ -12,3 +12,11 @@ Nav {
 NavDropdown {
     font-family: 'Courier New', Courier, monospace;
   }
+
+.Create {
+  padding: 15vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
