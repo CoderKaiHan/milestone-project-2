@@ -5,6 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import temp_logo from '../assets/travlr.png'
 
 const Navigation = () => {
+
+    const navCollapStyle = {
+      backgroundColor: '#f8f9fa',
+      margin: '0',
+      width: '100%'
+    }
     return (
         <div>
           <Navbar expand="lg" className="bg-body-tertiary" fixed='top'style={{height:'10vh'}}>
@@ -13,7 +19,7 @@ const Navigation = () => {
                 <img src={temp_logo} alt='logo' style={{height:'50px', width:'100px'}}/>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
+              <Navbar.Collapse id="basic-navbar-nav" style={navCollapStyle}>
                 <Nav className="me-auto">
                   <Nav.Link href="/">Home</Nav.Link>
                   {/* <NavDropdown title="Inspirations" id="basic-nav-dropdown">
