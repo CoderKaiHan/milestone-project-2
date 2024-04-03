@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 const ViewMyEscapes = () => {
 
@@ -35,11 +36,13 @@ const ViewMyEscapes = () => {
         }
 
         const handleDelete = (event) => {
-          const { destination, value } = event.target;
-          setFormData({
-            ...formData,
-            [destination]: value
-          });
+          axios.delete(`http://localhost:3000/itinerary/${itinerary._id}`)
+            .then(response => {
+              console.log(`Deleted itinerary with ID ${itinerary._id}`);
+            })
+            .catch(error => {
+              console.error(error);
+            });
         }
 
         return (
@@ -58,7 +61,7 @@ const ViewMyEscapes = () => {
                  </ListGroup>
                  <Card.Body>
                    <Button variant="info" style={{margin:'5px'}}>Update</Button>
-                   <Button variant="danger" style={{margin:'5px'}}>Delete</Button>
+                   <Button variant="danger" style={{margin:'5px'}} onclick= {handleDelete}>Delete</Button>
                  </Card.Body>
                </Card>
             </React.Fragment>
