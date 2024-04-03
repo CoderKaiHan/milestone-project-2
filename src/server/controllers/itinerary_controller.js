@@ -1,6 +1,12 @@
 import express from "express";
 const itinerary = express.Router();
 import Itinerary from "../models/itinerary.js"
+import verifyToken from "../middleware/verifyToken.js";
+
+//NEED TEAM INPUT: We need to determine which routes will be protected, aka which routes require a user to be logged in in order to access. All you have to do to implement this protection is add verifyToken into the paramaters. 
+// Ex: router.get ("/itinerary/my-escapes", verifyToken, (req, res) => {
+  // we may want to consider refactoring the names of these routes for better flow, ex: "/escapes/my-escapes" "/itineraries/my-itineraries" etc.
+  
 
 // get all itineraries
 itinerary.get ("/", (req, res)=>{
