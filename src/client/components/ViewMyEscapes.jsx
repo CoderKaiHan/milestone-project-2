@@ -3,11 +3,13 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
 
 const ViewMyEscapes = () => {
 
   const [ itineraryData, setItineraryData ]= useState([]);
-  // const [error, setError] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedItinerary, setSelectedItinerary] = useState(null);
 
   useEffect(() => {
     const API_URL = `http://localhost:3000/itinerary/`
@@ -23,6 +25,18 @@ const ViewMyEscapes = () => {
     fetchData();
 }, []);
     
+    const confirmDelete = async (itineraryId) => {
+      try {
+        await axios.delete(`http://localhost:3000/itinerary/${itineraryId}`)
+          console.log(`Deleted itinerary with ID ${itineraryId}`);
+          const response = await fetch('http://localhost:3000/itinerary/');
+          const resData = await response.json();
+          setItineraryData(resData);
+          setModalShow(false);
+      } catch (error){
+          console.error(error);
+        }
+    }    
 
     const renderItineraries = () => {
       if (itineraryData.length === 0) {
@@ -35,15 +49,10 @@ const ViewMyEscapes = () => {
           margin:'1%'
         }
 
-        const handleDelete = (event) => {
-          axios.delete(`http://localhost:3000/itinerary/${itinerary._id}`)
-            .then(response => {
-              console.log(`Deleted itinerary with ID ${itinerary._id}`);
-            })
-            .catch(error => {
-              console.error(error);
-            });
-        }
+        const handleDelete = (itinerary) => {
+          setSelectedItinerary(itinerary);
+          setModalShow(true);
+        };
 
         return (
             < React.Fragment key={itinerary._id}>
@@ -61,7 +70,7 @@ const ViewMyEscapes = () => {
                  </ListGroup>
                  <Card.Body>
                    <Button variant="info" style={{margin:'5px'}}>Update</Button>
-                   <Button variant="danger" style={{margin:'5px'}} onclick= {handleDelete}>Delete</Button>
+                   <Button variant="danger" style={{margin:'5px'}} onClick= {()=> handleDelete(itinerary)}>Delete</Button>
                  </Card.Body>
                </Card>
             </React.Fragment>
@@ -72,7 +81,6 @@ const ViewMyEscapes = () => {
     const divStyle = {
       display:'flex',
       flexWrap: 'wrap',
-      justifyContent:'space-between',
       margin:'5%',
       paddingBottom: '5%'
     }
@@ -80,6 +88,37 @@ const ViewMyEscapes = () => {
     return (
     <div style={divStyle}>
       {renderItineraries()}
+      <Modal
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            {selectedItinerary && selectedItinerary.destination}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Delete this itinerary ?</h4>
+          <p>
+            This itinerary can't be recovered after the deletion. Click confirm
+            to delete. Close the conversation to cancel.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={() => setModalShow(false)}>
+            Cancel
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => {confirmDelete(selectedItinerary._id); setModalShow(false)}}
+          >
+            Confirm
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
     );
 }

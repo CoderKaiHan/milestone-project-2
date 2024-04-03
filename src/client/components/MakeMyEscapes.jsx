@@ -11,10 +11,10 @@ function newEscape() {
   })
 
   const handleInput = (event) => {
-    const { destination, value } = event.target;
+    const { name, value } = event.target;
     setFormData({
       ...formData,
-      [destination]: value
+      [name]: value
     });
   };
 
@@ -35,7 +35,7 @@ function newEscape() {
   };
 
   return (
-    <div class="Create">
+    <div className="Create">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="destinationName">
         <Form.Label>Destination</Form.Label>
