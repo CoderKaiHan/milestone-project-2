@@ -1,5 +1,11 @@
-const EscapeDetails = () => {
 
+
+
+
+const EscapeDetails = () => {
+    
+    
+    
     const divStyle = {
         display:'flex',
         flexWrap: 'wrap',
