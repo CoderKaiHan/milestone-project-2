@@ -21,7 +21,7 @@ const Navigation = () => {
           <Navbar expand="lg" className="bg-body-tertiary" fixed='top'style={{height:'10vh'}}>
             <Container>
               <Navbar.Brand href="/">
-                <img src={temp_logo} alt='logo' style={{height:'85px', width:'170px'}}/>
+                <img src={temp_logo} alt='logo' className="navbar-logo" style={{height:'85px', width:'170px'}}/>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" style={navCollapStyle}>

@@ -11,7 +11,7 @@ function newEscape() {
   })
 
   const handleInput = (event) => {
-    const { name, value } = event.currentTarget;   
+    const { name, value } = event.target;   
     setFormData({
       ...formData,
       [name]: value

@@ -14,7 +14,7 @@ function Login() {
   const { login } = useAuth() // destructure the login function from our imported useAuth
 
   const handleInput = (event) => {
-    const { name, value } = event.currentTarget;
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value
