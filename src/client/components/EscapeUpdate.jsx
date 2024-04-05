@@ -1,15 +1,32 @@
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
+import { isAfter } from 'date-fns';
+
 
 const EscapeUpdate = () => {
     
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+
+    // Function to handle end date change
+    const isSameDate = (date1, date2) => {
+        return date1.getFullYear() === date2.getFullYear() &&
+               date1.getMonth() === date2.getMonth() &&
+               date1.getDate() === date2.getDate();
+    }
+    
+    const handleEndDateChange = (date) => {
+        if (!startDate || isAfter(date, startDate) || isSameDate(date, startDate)) {
+        setEndDate(date); 
+        } else {
+          alert('End Date needs to be the same or after the Start Date');
+        }
+    }
 
     const divStyle = {
         display:'flex',
@@ -69,7 +86,7 @@ const EscapeUpdate = () => {
                 <Col sm={10}>
                 <DatePicker
                   selected={endDate}
-                  onChange={(date) => setEndDate(date)}
+                  onChange={handleEndDateChange}
                   placeholderText="Click to select end date"
                   dateFormat="yyyy-MM-dd"
                 //   type = "date"
