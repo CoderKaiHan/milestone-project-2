@@ -8,8 +8,7 @@ import itineraryController from "./controllers/itinerary_controller.js"
 
 const app = express()
 
-app.use(cors())
-// for production, update to app.use(cors({ origin: "http:frontendurl.com" })) this will ensure that only that website can make requests to the backend
+app.use(cors({ origin: "https://escapeplan.onrender.com/" }))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
