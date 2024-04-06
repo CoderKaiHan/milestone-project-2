@@ -9,10 +9,10 @@ const BrowseEscapes = () => {
   const [ itineraryData, setItineraryData ]= useState([]);
 
   useEffect(() => {
-    const API_URL = `http://localhost:3000/itinerary/`
+    const API_URL = import.meta.env.VITE_API_URL
     const fetchData = async () => {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(`${API_URL}/itinerary/`);
         const resData = await response.json();
         setItineraryData(resData);
       } catch (e) {
@@ -23,10 +23,11 @@ const BrowseEscapes = () => {
 }, []);
     
     const confirmDelete = async (itineraryId) => {
+      const API_URL = import.meta.env.VITE_API_URL
       try {
-        await axios.delete(`http://localhost:3000/itinerary/${itineraryId}`)
+        await axios.delete(`${API_URL}/itinerary/${itineraryId}`)
           console.log(`Deleted itinerary with ID ${itineraryId}`);
-          const response = await fetch('http://localhost:3000/itinerary/');
+          const response = await fetch(`${API_URL}/itinerary/`);
           const resData = await response.json();
           setItineraryData(resData);
           setModalShow(false);
