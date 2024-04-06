@@ -30,9 +30,9 @@ const ViewMyEscapes = () => {
     const confirmDelete = async (itineraryId) => {
       const API_URL = import.meta.env.VITE_API_URL
       try {
-        await axios.delete(`${API_URL}/itinerary/${itineraryId}`)
+        await axios.delete(`${API_URL}/my_escapes/${itineraryId}`)
           console.log(`Deleted itinerary with ID ${itineraryId}`);
-          const response = await fetch(`${API_URL}/itinerary/`);
+          const response = await fetch(`${API_URL}/my_escapes/`);
           const resData = await response.json();
           setItineraryData(resData);
           setModalShow(false);
@@ -63,7 +63,7 @@ const ViewMyEscapes = () => {
                  <Card.Img variant="top" src="https://placehold.co/10x10" />
                  <Card.Body>
                  <Card.Title>
-                   <Link to={`/escapes/${itinerary._id}`}>{itinerary.destination}</Link>
+                   <Link to={`/my_escapes/${itinerary._id}`}>{itinerary.destination}</Link>
                  </Card.Title>
                    <Card.Text>
                      Description data goes here
@@ -74,7 +74,7 @@ const ViewMyEscapes = () => {
                    <ListGroup.Item>{`${new Date(itinerary.startDate).getFullYear()}-${new Date(itinerary.startDate).getMonth() + 1}-${new Date(itinerary.startDate).getDate()} ~ ${new Date(itinerary.endDate).getFullYear()}-${new Date(itinerary.endDate).getMonth() + 1}-${new Date(itinerary.endDate).getDate()}`}</ListGroup.Item>
                  </ListGroup>
                  <Card.Body>
-                   <Button variant="info" style={{margin:'5px'}} href={`/escapes/${itinerary._id}/update`}>Update</Button>
+                   <Button variant="info" style={{margin:'5px'}} href={`/my_escapes/${itinerary._id}/update`}>Update</Button>
                    <Button variant="danger" style={{margin:'5px'}} onClick= {()=> handleDelete(itinerary)}>Delete</Button>
                  </Card.Body>
                </Card>
