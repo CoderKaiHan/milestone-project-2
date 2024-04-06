@@ -1,11 +1,15 @@
 import express from "express"
+import cors from 'cors'
 import ViteExpress from "vite-express"
 import connectDB from "./config/database.js"
 import authController from "./controllers/auth_controller.js"
 import itineraryController from "./controllers/itinerary_controller.js"
 
 
-const app = express();
+const app = express()
+
+app.use(cors())
+// for production, update to app.use(cors({ origin: "http:frontendurl.com" })) this will ensure that only that website can make requests to the backend
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -22,6 +26,8 @@ app.use("/itinerary", itineraryController)
 app.use(authController)
 
 
-ViteExpress.listen(app, 3000, () =>
-  console.log("Server is listening on port 3000."),
-);
+const PORT = process.env.PORT || 3000;
+ViteExpress.listen(app, PORT, () => {
+  console.log(`Server is listening on port ${PORT}.`);
+})
+// Render will supply the PORT env
