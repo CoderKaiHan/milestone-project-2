@@ -8,7 +8,7 @@ import itineraryController from "./controllers/itinerary_controller.js"
 
 const app = express()
 
-app.use(cors({ origin: "https://escapeplan.onrender.com/" }))
+app.use(cors({ origin: "https://escapeplan.onrender.com" }))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

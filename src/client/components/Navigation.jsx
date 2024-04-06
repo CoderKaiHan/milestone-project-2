@@ -17,7 +17,7 @@ const Navigation = () => {
   const { isAuthenticated, logout } = useAuth()
 
     return (
-        <div class='navbar-container'>
+        <div className='navbar-container'>
           <Navbar expand="lg" className="bg-body-tertiary" fixed='top' style={{height:'10%', diplay:'flex', alignContent:'center', justifyContent:'space-evenly'}}>
             <Container>
               {/* <Navbar.Brand href="/">
