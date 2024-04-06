@@ -8,7 +8,7 @@
     - Together, Andrew Thomas and Kai Han brought their talents to the digital South Beach of Escape Plan as they curated a smooth and fluid user experience to make planning your trip almost as fun as the trip itself. Their work serves to make the application sleek and intuitive.
 - Back End Development
     - Like a master cartographer, Vanessa Pursley charted the New World of data and connectivity, mapping out the intricate pathways that bridge the gap between your dreams of a lavish escape and the punching of your ticket.
-    - Behind every successful mission is a man sitting in a dark room, basking in the glow of his computer screen as he weaves the digital fabric that supports and protects its users. Jordan Cox orchestrated the database and raised the defenses of user authentication to give the people what they want, and the bad guys nothing.
+    - Behind every successful mission is a man sitting in a dark room, basking in the glow of his computer screen as he weaves together the digital fabric that supports and protects its users. Jordan Cox orchestrated the database and raised the defenses of user authentication to give the people what they want, and the bad guys nothing.
 ### How it works
 Users can create an account with Escape Plan and immediately either jump into building and sharing their own travel itineraries, or viewing those that others have created to seek inspiration. Simply click "Make My Escapes" to start crafting your dream trip, "View My Escape" to review, edit, or delete your itineraries, or "Browse Escapes" to see what others have put together. Was your trip a raving success? Maybe share it with the world!
 ### Link: https://escapeplan.onrender.com/

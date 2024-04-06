@@ -17,15 +17,18 @@ const Navigation = () => {
   const { isAuthenticated, logout } = useAuth()
 
     return (
-        <div>
-          <Navbar expand="lg" className="bg-body-tertiary" fixed='top'style={{height:'10vh'}}>
+        <div class='navbar-container'>
+          <Navbar expand="lg" className="bg-body-tertiary" fixed='top' style={{height:'10%', diplay:'flex', alignContent:'center', justifyContent:'space-evenly'}}>
             <Container>
-              <Navbar.Brand href="/">
+              {/* <Navbar.Brand href="/">
                 <img src={temp_logo} alt='logo' className="navbar-logo" style={{height:'85px', width:'170px'}}/>
-              </Navbar.Brand>
+              </Navbar.Brand> */}
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav" style={navCollapStyle}>
                 <Nav className="me-auto">
+                  <Navbar.Brand href="/">
+                  <img src={temp_logo} alt='logo' className="navbar-logo" style={{height:'75px', width:'170px'}}/>
+                  </Navbar.Brand>
                   <Nav.Link href="/">Home</Nav.Link>
                   {/* <NavDropdown title="Inspirations" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/inspiration/category_1">Category 1</NavDropdown.Item>
