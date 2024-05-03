@@ -58,6 +58,8 @@ itinerary.get ("/", (req, res)=>{
   itinerary.put("/:id", (req, res)=>{
     Itinerary.findByIdAndUpdate(req.params.id, req.body, {new:true})
     .then(updatedItinerary=>{
+      console.log("Received form data:", req.body); 
+      console.log("Updated Itinerary:", updatedItinerary); 
       res.status(200).send(updatedItinerary)
     })
     .catch(err=>{

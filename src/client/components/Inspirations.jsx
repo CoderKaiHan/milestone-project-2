@@ -36,8 +36,12 @@ const BrowseEscapes = () => {
       }
       return itineraryData.map((itinerary)=>{
 
-        const vibeImage = vibeImages[itinerary.vibe] || 'https://placehold.co/10x10';
-        console.log(vibeImage);
+      let vibeImage; 
+        if (itinerary.photo) {
+          vibeImage = itinerary.photo;
+        } else {
+          vibeImage = vibeImages[itinerary.vibe] || 'https://placehold.co/10x10';
+        }
 
         const cardStyle = {
           width: '30%',
