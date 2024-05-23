@@ -27,3 +27,4 @@ dist-ssr
 *.sw?
 debug.js
 .vercel
+.env*.local
