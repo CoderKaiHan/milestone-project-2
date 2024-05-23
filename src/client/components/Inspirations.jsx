@@ -23,7 +23,7 @@ const BrowseEscapes = () => {
       }
     }
     fetchData();
-}, []);
+  }, []);
     
     
     //Different image urls according to vibes
