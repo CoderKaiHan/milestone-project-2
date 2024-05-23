@@ -15,7 +15,7 @@ itinerary.get ("/", (req, res)=>{
     // res.send("Hello from the itinerary get call.")
     Itinerary.find()
     .then(foundItineraires => {
-      console.log(foundItineraires)
+      // console.log(foundItineraires)
       res.status(200).send(foundItineraires)
       
     })

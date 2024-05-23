@@ -11,8 +11,13 @@ const BrowseEscapes = () => {
   useEffect(() => {
     
     const fetchData = async () => {
-     const{data} = await axios.get('/itinerary')
-     setItineraryData(data)
+      try{
+        const{data} = await axios.get('/itinerary')
+        setItineraryData(data)
+      } catch (err){
+        console.error('Error fetching itinerary data:', err);
+        return[];
+      }
     }
     fetchData();
 }, []);
@@ -31,6 +36,7 @@ const BrowseEscapes = () => {
       return date.toLocaleDateString('en-US', options);
     };
     const renderItineraries = () => {
+
       if (itineraryData.length === 0) {
         return <p>Loading...</p>; 
       }
