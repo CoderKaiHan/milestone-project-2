@@ -13,6 +13,9 @@ const BrowseEscapes = () => {
     const fetchData = async () => {
       try{
         const{data} = await axios.get('/itinerary')
+        console.log('Fetched data:', data);//trying to figure out why Vercel throw an error:TypeError e.map is not a function RESULT:An array of objects
+        console.log('Data type:', typeof data);//Check data type RESULT:OBJECT
+        console.log('Is data an array:', Array.isArray(data));//Check if data is an array  RESULT:TRUE
         setItineraryData(data)
       } catch (err){
         console.error('Error fetching itinerary data:', err);
