@@ -71,7 +71,7 @@ function newEscape() {
 
 
   return (
-    <div className="Create">
+    <div className="create">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="destination">
         <Form.Label>Destination</Form.Label>

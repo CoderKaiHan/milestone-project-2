@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './styles/css/app.css'
 import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import BrowseEscapes from './components/Inspirations';
 import MakeMyEscapes from './components/MakeMyEscapes';

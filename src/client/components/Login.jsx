@@ -51,7 +51,7 @@ function Login() {
   
 
   return (
-    <div className="Create">
+    <div className="create">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email">
         <Form.Label>Email Address</Form.Label>
